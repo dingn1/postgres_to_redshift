@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "postgres_to_redshift/version"
+require "pg_to_redshift/version"
 require "pg"
 require "uri"
 require "aws-sdk"
 require "zlib"
 require "tempfile"
-require "postgres_to_redshift/table"
-require "postgres_to_redshift/column"
+require "pg_to_redshift/table"
+require "pg_to_redshift/column"
 
 class PgToRedshift
 

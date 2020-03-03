@@ -7,8 +7,8 @@ require "pg_to_redshift/version"
 Gem::Specification.new do |spec|
   spec.name          = "pg_to_redshift"
   spec.version       = PgToRedshift::VERSION
-  spec.authors       = ["Ning Ding"]
-  spec.email         = ["yanwding@gmail.com"]
+  spec.authors       = ["Alex Rakoczy"]
+  spec.email         = ["arakoczy@gmail.com"]
   spec.summary       = "Load PG databases into Amazon Redshift"
   spec.description   = "Load PG databases into Amazon Redshift. It's designed to work on any *nix/BSD hosts."
   spec.homepage      = "https://github.com/dingn1/pg_to_redshift"

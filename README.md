@@ -9,7 +9,7 @@ This gem copies data from postgres to redshift. It's especially useful to copy d
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'postgres_to_redshift'
+gem 'pg_to_redshift'
 ```
 
 And then execute:

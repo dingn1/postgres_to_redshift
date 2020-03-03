@@ -1,0 +1,202 @@
+Metrics/ClassLength:
+  Max: 666
+
+Metrics/MethodLength:
+  Max: 58
+
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: key
+  EnforcedColonStyle: key
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_first_parameter
+
+Layout/BlockAlignment:
+  EnforcedStyleAlignWith: start_of_block
+
+Layout/DotPosition:
+  EnforcedStyle: leading
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines_except_namespace
+
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: empty_lines_except_namespace
+
+Layout/EndAlignment:
+  AutoCorrect: true
+  EnforcedStyleAlignWith: variable
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+
+Layout/FirstArgumentIndentation:
+  EnforcedStyle: special_for_inner_method_call
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: special_inside_parentheses
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: special_inside_parentheses
+
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineArrayLineBreaks:
+  Enabled: true
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineHashBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: true
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: aligned
+
+Layout/SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+
+Lint/DuplicateMethods:
+  Exclude:
+    - 'lib/postgres_to_redshift.rb'
+    - 'lib/pg_to_redshift/table.rb'
+
+Metrics/AbcSize:
+  Max: 175
+
+Metrics/BlockNesting:
+  Max: 4
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 13
+
+Metrics/LineLength:
+  Max: 443
+
+Metrics/ModuleLength:
+  Max: 800
+
+Metrics/PerceivedComplexity:
+  Max: 15
+
+Naming/HeredocDelimiterNaming:
+  Exclude:
+    - 'spec/features/small_table_spec.rb'
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: error
+
+Naming/MethodParameterName:
+  AllowNamesEndingInNumbers: true
+  AllowedNames:
+    - io
+    - id
+    - to
+    - by
+    - on
+    - in
+    - at
+    - ip
+    - db
+    - el
+    - dw
+    - ds
+    - cc
+    - bcc
+    - _
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/FloatDivision:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Lambda:
+  EnforcedStyle: lambda
+
+Style/Next:
+  EnforcedStyle: always
+
+Style/NumericLiterals:
+  MinDigits: 11
+
+Style/RaiseArgs:
+  EnforcedStyle: compact
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_parentheses
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/ReturnNil:
+  AutoCorrect: true
+  EnforcedStyle: return
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/WordArray:
+  MinSize: 8
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false

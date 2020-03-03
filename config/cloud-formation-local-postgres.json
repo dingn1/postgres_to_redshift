@@ -24,7 +24,7 @@
         "DBName": "test",
         "MasterUsername": "test",
         "MasterUserPassword": "Testtesttest1",
-        "NodeType": "dc1.large"
+        "NodeType": "dc2.large"
       },
       "Metadata": {
       }

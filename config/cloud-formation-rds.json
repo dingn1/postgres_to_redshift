@@ -15,13 +15,13 @@
       "Type": "AWS::RDS::DBInstance",
       "Properties": {
         "AllowMajorVersionUpgrade": true,
-        "DBInstanceClass": "db.m3.medium",
+        "DBInstanceClass": "db.m5.medium",
         "DBSecurityGroups": [{"Ref" :"postgresSecurityGroup"}],
         "BackupRetentionPeriod": "0",
         "DBName": "test",
         "AllocatedStorage": "5",
         "Engine": "postgres",
-        "EngineVersion": "9.5.2",
+        "EngineVersion": "9.6.17",
         "MasterUsername": "test",
         "MasterUserPassword": "testtesttest",
         "StorageType": "standard",
@@ -40,7 +40,7 @@
         "DBName": "test",
         "MasterUsername": "test",
         "MasterUserPassword": "Testtesttest1",
-        "NodeType": "dc1.large"
+        "NodeType": "dc2.large"
       },
       "Metadata": {
       }

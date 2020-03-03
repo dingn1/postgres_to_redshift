@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # table_catalog                | postgres_to_redshift
 # table_schema                 | public
 # table_name                   | acquisition_pages
@@ -11,11 +13,12 @@
 # is_typed                     | NO
 # commit_action                |
 #
-class PostgresToRedshift
+class PgToRedshift
   class Table
+
     attr_accessor :attributes, :columns
 
-    def initialize(attributes: , columns: [])
+    def initialize(attributes:, columns: [])
       self.attributes = attributes
       self.columns = columns
     end
@@ -26,29 +29,28 @@ class PostgresToRedshift
     alias_method :to_s, :name
 
     def target_table_name
-      name.gsub(/_view$/, '')
+      name.gsub(/_view$/, "")
     end
 
     def columns=(column_definitions = [])
       @columns = column_definitions.map do |column_definition|
-        Column.new(attributes: column_definition)
+        Column.new(:attributes => column_definition)
       end
     end
 
     def columns_for_create
       columns.map do |column|
-        %Q["#{column.name}" #{column.data_type_for_copy}]
+        %("#{column.name}" #{column.data_type_for_copy})
       end.join(", ")
     end
 
     def columns_for_copy
-      columns.map do |column|
-        column.name_for_copy
-      end.join(", ")
+      columns.map(&:name_for_copy).join(", ")
     end
 
-    def is_view?
+    def view?
       attributes["table_type"] == "VIEW"
     end
+
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # table_catalog            | postgres_to_redshift
 # table_schema             | public
 # table_name               | films
@@ -43,54 +45,59 @@
 # generation_expression    |
 # is_updatable             | YES
 #
-class PostgresToRedshift::Column
-  attr_accessor :attributes
+class PgToRedshift
+  class Column
 
-  CAST_TYPES_FOR_COPY = {
-    "text" => "CHARACTER VARYING(65535)",
-    "json" => "CHARACTER VARYING(65535)",
-    "jsonb" => "CHARACTER VARYING(65535)",
-    "bytea" => "CHARACTER VARYING(65535)",
-    "money" => "DECIMAL(19,2)",
-    "oid" => "CHARACTER VARYING(65535)",
-    "ARRAY" => "CHARACTER VARYING(65535)",
-    "USER-DEFINED" => "CHARACTER VARYING(65535)",
-    "uuid" => "CHARACTER VARYING(65535)",
-    "inet" => "CHARACTER VARYING(65535)",
-    "name" => "CHARACTER VARYING(65535)",
-    "bit" => "CHARACTER(1)"
-  }
+    attr_accessor :attributes
 
-  def initialize(attributes: )
-    self.attributes = attributes
-  end
+    CAST_TYPES_FOR_COPY = {
+      "text" => "CHARACTER VARYING(65535)",
+      "json" => "CHARACTER VARYING(65535)",
+      "jsonb" => "CHARACTER VARYING(65535)",
+      "bytea" => "CHARACTER VARYING(65535)",
+      "money" => "DECIMAL(19,2)",
+      "oid" => "CHARACTER VARYING(65535)",
+      "ARRAY" => "CHARACTER VARYING(65535)",
+      "USER-DEFINED" => "CHARACTER VARYING(65535)",
+      "uuid" => "CHARACTER VARYING(65535)",
+      "inet" => "CHARACTER VARYING(65535)",
+      "name" => "CHARACTER VARYING(65535)",
+      "bit" => "CHARACTER(1)",
+    }.freeze
 
-  def name
-    attributes["column_name"]
-  end
-
-  def name_for_copy
-    if needs_type_cast?
-      %Q[CAST("#{name}" AS #{data_type_for_copy}) AS #{name}]
-    else
-      %Q["#{name}"]
+    def initialize(attributes:)
+      self.attributes = attributes
     end
-  end
 
-  def data_type
-    if attributes["data_type"] == "numeric" && !attributes["numeric_precision"].nil? && !attributes["numeric_scale"].nil?
-      "numeric(#{attributes["numeric_precision"]},#{attributes["numeric_scale"]})"
-    else
-      attributes["data_type"]
+    def name
+      attributes["column_name"]
     end
-  end
 
-  def data_type_for_copy
-    CAST_TYPES_FOR_COPY[data_type] || data_type
-  end
+    def name_for_copy
+      if needs_type_cast?
+        %[CAST("#{name}" AS #{data_type_for_copy}) AS #{name}]
+      else
+        %("#{name}")
+      end
+    end
 
-  private
-  def needs_type_cast?
-    data_type != data_type_for_copy
+    def data_type
+      if attributes["data_type"] == "numeric" && !attributes["numeric_precision"].nil? && !attributes["numeric_scale"].nil?
+        "numeric(#{attributes["numeric_precision"]},#{attributes["numeric_scale"]})"
+      else
+        attributes["data_type"]
+      end
+    end
+
+    def data_type_for_copy
+      CAST_TYPES_FOR_COPY[data_type] || data_type
+    end
+
+    private
+
+    def needs_type_cast?
+      data_type != data_type_for_copy
+    end
+
   end
 end

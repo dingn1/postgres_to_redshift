@@ -1,4 +1,4 @@
-# PostgresToRedshift
+# PgToRedshift
 
 This gem copies data from postgres to redshift. It's especially useful to copy data from postgres to redshift in heroku.
 
